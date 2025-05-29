@@ -28,6 +28,7 @@ tooltip {
     background: #1e1e2e;
     color: #a6adc8;
     transition: all 0.2s ease-in-out;
+    border-radius: 6px;
 }
 
 #workspaces button.active {
