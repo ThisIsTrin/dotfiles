@@ -19,3 +19,5 @@ SAVEHIST=10000
 # Enable auto-suggestions and syntax highlighting
 source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+
+source ~/.config/zsh/aliases.zsh
