@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if ip link show wg-sjmis 2>/dev/null | grep -q "UP"; then
+    echo '{"text": "sjmis", "class": "connected"}'
+else
+    echo '{"text": "", "class": "disconnected"}'
+fi
+

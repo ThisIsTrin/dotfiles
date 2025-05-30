@@ -26,6 +26,7 @@
 //        "battery",
 //        "battery#bat2",
 //        "tray",
+        "custom/wg",
         "network",
         "power-profiles-daemon",
         "cpu",
@@ -218,5 +219,12 @@
     "hyprland/language": {
 	"format": "{short}",
 	//"on-click": "swaymsg input type:keyboard xkb_switch_layout next"
+    },
+    "custom/wg": {
+        "exec": "$HOME/.config/custom_scripts/wg-status",
+        "interval": 5,
+        "return-type": "json",
+        "format": "{}",
+        "tooltip": false
     }
 }
