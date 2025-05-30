@@ -1,0 +1,14 @@
+#!/bin/bash
+
+chosen=$(printf "Connect back to sjmis\nDisconnect from VPN" | rofi -dmenu -p "VPN Menu")
+
+case "$chosen" in
+  "Connect back to sjmis")
+    pkexec /usr/bin/wg-quick up wg-sjmis
+    notify-send "VPN" "Connected to sjmis"
+    ;;
+  "Disconnect from VPN")
+    pkexec /usr/bin/wg-quick down wg-sjmis
+    notify-send "VPN" "All VPNs Disconnected"
+    ;;
+esac
