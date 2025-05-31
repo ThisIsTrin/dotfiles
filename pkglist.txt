@@ -45,6 +45,7 @@ power-profiles-daemon
 qt5-wayland
 qt6-wayland
 reflector
+remmina
 rofi
 sddm
 slurp
