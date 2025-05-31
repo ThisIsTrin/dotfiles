@@ -1,0 +1,12 @@
+discordo-git-debug
+fonts-tlwg
+neofetch
+spotify-player-full
+spotify-player-full-debug
+winbox
+winbox-debug
+wireguird-debug
+xrdp
+xrdp-debug
+yay
+yay-debug
