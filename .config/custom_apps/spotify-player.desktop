@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Spotify TUI
+Exec=alacritty -e /usr/bin/spotify_player
+Icon=spotify
+Terminal=false
+Type=Application
+Categories=Music;

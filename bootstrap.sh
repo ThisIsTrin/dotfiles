@@ -19,4 +19,8 @@ git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si --noconfirm
 echo "==> Installing AUR packages..."
 yay -S --needed - < ~/aurlist.txt
 
+echo "==> Setting up symlink for custom apps..."
+ln -s ~/.config/custom_apps/connect-vpn.desktop ~/.local/share/applications/custom_apps/connect-vpn.desktop
+ln -s ~/.config/custom_apps/spotify-player.desktop ~/.local/share/applications/custom_apps/spotify-player.desktop
+
 echo "==> Done!"
