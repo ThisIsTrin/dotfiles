@@ -52,6 +52,7 @@ slurp
 smartmontools
 spotify-launcher
 spotify-player-full
+spotifyd
 steam
 swww
 ttf-dejavu
