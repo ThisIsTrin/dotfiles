@@ -1,6 +1,13 @@
+afdko-debug
 discordo-git-debug
 fonts-tlwg
+google-chrome
+lib32-blas
+lib32-lzo
+lib32-lzo-debug
+mingw-w64-tools-debug
 neofetch
+proton-cachyos
 spotify-player-full
 spotify-player-full-debug
 winbox
