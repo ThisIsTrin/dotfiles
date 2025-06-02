@@ -1,19 +1,11 @@
-afdko-debug
-discordo-git-debug
-fonts-tlwg
-google-chrome
-lib32-blas
-lib32-lzo
-lib32-lzo-debug
-mingw-w64-tools-debug
-neofetch
-proton-cachyos
-spotify-player-full
-spotify-player-full-debug
-winbox
-winbox-debug
-wireguird-debug
-xrdp
-xrdp-debug
-yay
-yay-debug
+fonts-tlwg 0.7.3-1
+google-chrome 137.0.7151.55-1
+neofetch 7.1.0-2
+spotify-player-full 0.20.5-1
+spotify-player-full-debug 0.20.5-1
+winbox 4.0beta21-1
+winbox-debug 4.0beta21-1
+xrdp 0.10.3-1
+xrdp-debug 0.10.3-1
+yay 12.5.0-1
+yay-debug 12.5.0-1
