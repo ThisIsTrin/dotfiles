@@ -15,3 +15,7 @@ dotfiles checkout 2>&1 | grep -E "\s+\." | awk {'print $1'} | \
   xargs -I{} mv {} .dotfiles-backup/
 dotfiles checkout
 ```
+# Disable audio power saving (for Intel/Realtek audio)
+```bash
+echo "options snd_hda_intel power_save=0" | sudo tee /etc/modprobe.d/audio_disable_powersave.conf > /dev/null
+```
