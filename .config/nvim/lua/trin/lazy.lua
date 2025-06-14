@@ -24,4 +24,5 @@ require("lazy").setup({{ "catppuccin/nvim", name = "catppuccin", priority = 1000
 {'L3MON4D3/LuaSnip'},
 {'williamboman/mason.nvim'},
 {'williamboman/mason-lspconfig.nvim'},
+{'epwalsh/obsidian.nvim'},
 })
