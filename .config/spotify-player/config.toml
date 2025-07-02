@@ -1,0 +1,2 @@
+client_id_command = { command = "cat", args = ["/home/trin/.config/spotify-player/client_id.txt"] }
+
