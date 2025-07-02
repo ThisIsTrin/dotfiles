@@ -1,16 +1,14 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 35,
+    "height": 21,
     "spacing": 8,
-    "margin-top": 8,
-    "margin-left": 12,
-    "margin-right": 12,
-    "margin-bottom": 0,
+    "margin": 0,
 
     "modules-left": [
         "hyprland/workspaces",
-        "hyprland/window"
+        "hyprland/window",
+        "hyprland/submap",
     ],
 
     "modules-center": [
@@ -18,15 +16,21 @@
     ],
 
     "modules-right": [
-        "tray",
         "hyprland/language",
         "pulseaudio",
-        "network",
-        "battery",
+        "network#vpn",
+        "network#wifi",
+        "network#ethernet",
+        "network#disconnected",
+        "tray",
         "custom/power"
     ],
 
     "hyprland/workspaces": {
+        "special-visible-only": false,
+        "show-special": true,
+        "active-only": false,
+        "warp-on-scroll": false,
         "format": "{icon}",
         "format-icons": {
             "3": "󰓇",
@@ -37,72 +41,89 @@
     },
 
     "hyprland/window": {
+        "format": "  {class}",
+        "max-length": 15,
+        "icon": false,
+        "icon-size": 9,
+        "separate-outputs": true
+    },
+
+    "hyprland/submap": {
         "format": "{}",
-        "max-length": 50,
-        "separate-outputs": true,
-        "rewrite": {
-            "(.*) — Mozilla Firefox": "🌐 $1",
-            "(.*) - Discord": "󰙯 Discord",
-            "Spotify": "󰓇 Spotify"
-        }
+        "tooltip": false
     },
 
     "clock": {
-        "interval": 1,
-        "format": "{:%H:%M:%S}",
-        "format-alt": "{:%A, %B %d, %Y (%R)}",
-        "tooltip-format": "<tt><small>{calendar}</small></tt>",
-        "calendar": {
-            "mode": "month",
-            "mode-mon-col": 3,
-            "format": {
-                "months": "<span color='#ffead3'><b>{}</b></span>",
-                "days": "<span color='#ecc6d9'><b>{}</b></span>",
-                "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
-                "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
-                "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
-            }
-        }
+    // "timezone": "America/New_York",
+    "format": "<span color='#689d6a'> 󰥔 </span> {:%I:%M %p}",
+    "format-alt": "<span color='#689d6a'>  </span> {:%m-%d-%Y}",
+    "tooltip": true,
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "on-click-right": "gsimplecal",
+    "interval": 1
     },
 
-    "network": {
-        "format-wifi": "󰤨 {essid}",
-        "format-ethernet": "󰈁 Connected",
-        "format-linked": "󰈁 {ifname} (No IP)",
-        "format-disconnected": "󰤭 Disconnected",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}",
-        "tooltip-format": "{ifname} via {gwaddr} 󰊗",
-        "tooltip-format-wifi": "{essid} ({signalStrength}%) 󰤨",
-        "tooltip-format-ethernet": "{ifname} 󰈁",
-        "tooltip-format-disconnected": "Disconnected",
-        "on-click-right": "nm-connection-editor"
+    "network#disconnected": {
+        "tooltip-format": "No connection!",
+        "format-ethernet": "",
+        "format-wifi": "",
+        "format-linked": "",
+        "format-disconnected": "",
+        "on-click": "nm-connection-editor"
+    },
+    "network#ethernet": {
+        "interface": "eno*",
+        "format-ethernet": "",
+        "format-wifi": "",
+        "format-linked": "",
+        "format-disconnected": "",
+        "tooltip-format": "{ifname}: {ipaddr}/{cidr}",
+        "on-click": "nm-connection-editor"
+    },
+    "network#wifi": {
+        "interface": "wlp*",
+        "format-ethernet": "",
+        "format-wifi": " {essid} ({signalStrength}%)",
+        "format-linked": "",
+        "format-disconnected": "",
+        "tooltip-format": "{ifname}: {ipaddr}/{cidr}",
+        "on-click": "nm-connection-editor"
+    },
+    "network#vpn": {
+        "interface": "wg-sjmis",
+        "format": "",
+        "format-disconnected": "",
+        "tooltip-format": "{ifname}: {ipaddr}/{cidr}",
+        "on-click": "nm-connection-editor"
     },
 
     "pulseaudio": {
+        "scroll-step": 1,
         "format": "{icon} {volume}%",
-        "format-bluetooth": "{icon}󰂯 {volume}%",
-        "format-bluetooth-muted": "󰝟󰂯",
-        "format-muted": "󰝟",
-        "format-source": "󰍬 {volume}%",
-        "format-source-muted": "󰍭",
+        "format-muted": "<span color='#cc241d'>󰝟</span> {volume}%",
+        "format-bluetooth": "<span color='#458588'>󰂰</span> {volume}%",
+        "format-bluetooth-muted": "<span color='#cc241d'>󰂲</span> {volume}%",
+        "format-source": "<span color='#458588'>󰍬</span> {volume}%",
+        "format-source-muted": "<span color='#cc241d'>󰍭</span>",
         "format-icons": {
-            "headphone": "󰋋",
-            "hands-free": "󰋎",
-            "headset": "󰋎",
-            "phone": "󰄜",
-            "portable": "󰄜",
-            "car": "󰄋",
-            "default": ["󰕿", "󰖀", "󰕾"]
+            "default": [
+                "<span color='#458588'>󰕿</span>",  // low volume
+                "<span color='#458588'>󰖀</span>",  // medium volume
+                "<span color='#458588'>󰕾</span>"   // high volume
+            ]
         },
-        "on-click": "pavucontrol",
-        "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-        "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +2%",
-        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -2%"
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-click-right": "pavucontrol",
+        "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +1%",
+        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -1%",
+        "tooltip": false,
+        "tooltip-format": "{desc} - {volume}%",
+        "max-volume": 130
     },
 
     "tray": {
-        "icon-size": 18,
-        "spacing": 8
+        "icon-size": 12,
+        "spacing": 7
     },
 
     "hyprland/language": {
@@ -110,16 +131,18 @@
     },
 
     "custom/power": {
-        "format" : "󰐥",
-		"tooltip": false,
-		"menu": "on-click",
-		"menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
-		"menu-actions": {
-			"shutdown": "shutdown now",
-			"reboot": "reboot",
-			"suspend": "systemctl suspend",
-			"hibernate": "systemctl hibernate"
-		}
-    }
+        "format": "",
+        "escape": true,
+        "tooltip": false,
+        "menu": "on-click",
+        "menu-file": "$HOME/.config/waybar/power_menu.xml", 
+        "menu-actions": {
+            "lock": "swaylock",
+            "shutdown": "shutdown now",
+            "reboot": "reboot",
+            "suspend": "systemctl suspend",
+            "hibernate": "systemctl hibernate"
+        }
+    },
 
 }
