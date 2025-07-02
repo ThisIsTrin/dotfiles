@@ -22,6 +22,7 @@
         "network#wifi",
         "network#ethernet",
         "network#disconnected",
+        "custom/dnd",
         "tray",
         "custom/power"
     ],
@@ -144,5 +145,13 @@
             "hibernate": "systemctl hibernate"
         }
     },
+
+    "custom/dnd": {
+        "format": "{}",
+        "exec": "~/.config/waybar/scripts/dnd_status.sh",
+        "on-click": "~/.config/waybar/scripts/dnd_toggle.sh",
+        "interval": 2
+    }
+
 
 }

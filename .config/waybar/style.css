@@ -29,6 +29,7 @@ window#waybar.hidden {
 #language,
 #network,
 menu,
+#custom-dnd,
 #submap {
     font-family: JetBrainsMono Nerd Font;
     font-size: 10px;
@@ -41,6 +42,7 @@ menu,
 #pulseaudio,
 #pulseaudio.muted,
 #language,
+#custom-dnd,
 #network {
     margin-right: 5px;
     margin-left: 5px;
@@ -111,6 +113,7 @@ window#waybar.empty #window {
 
 #clock {
     color: #8ec07c;
+
 }
 
 #custom-power {
@@ -132,6 +135,10 @@ window#waybar.empty #window {
 }
 
 #network {
+    color: #8ec07c;
+}
+
+#custom-dnd {
     color: #8ec07c;
 }
 

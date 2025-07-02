@@ -1,0 +1,9 @@
+max-history=2
+default-timeout=3000
+font=JetBrainsMono Nerd Font 10
+background-color=#282828
+text-color=#8ec07c
+layer=overlay
+
+[mode=dnd]
+invisible=1
